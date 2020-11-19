@@ -41,7 +41,7 @@ class Quadtree():
         self.y = imagem.tamanho[1]
     
         # Quantidade total de nós folha
-         tamanho = imagem.tamanho[0] * imagem.tamanho[1]
+        tamanho = imagem.tamanho[0] * imagem.tamanho[1]
         
 
 def main():
