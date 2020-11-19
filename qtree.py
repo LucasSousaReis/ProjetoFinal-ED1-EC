@@ -7,35 +7,49 @@ Created on Fri Oct 23 02:11:59 2020
 """
 
 
-import matplotlib.image as mpimg
-import numpy as np
-import matplotlib.pyplot as plt
-
-imagem = mpimg.imread('imageForQuadtreeCompression.jpg')
-imagem.shape
-plt.imshow(imagem)                   
+from PIL import Image        
+import matplotlib.pyplot as plt 
                    
-class Ponto():
+# Classe que define as coordenadas dos nós da Qtree
+class Ponto(object):
     def __init__(self, x, y):
         self.x = x
         self.y = y
         
-class Node():
-    def __init__(self,xi,yi,l,a,pontos):
-        self.xi = xi
-        self.yi = yi
-        self.largura = l
-        self.altura = a
-        self.pontos = pontos
-        self.nosfilhos = []
-class QuadTree():
-    
-    
-        
-def get_largura(self):
-    return self.largura
+# Classe para associar pixel para cada nó da estrutura
+class Pixel(object):
+    def __init__(self, cor = [0, 0, 0], 
+            SuperiorEsquerdo = Ponto(0, 0), 
+            InferiorDireito = Ponto(0, 0)):
+        self.R = cor[0]
+        self.G = cor[1]
+        self.B = cor[2]
+        self.SuperiorEsquerdo = SuperiorEsquerdo
+        self.InferiorDireito = InferiorDireito
 
-def get_altura(self):
-    return self.altura
-def get_pontos(self):
-    return self.pontos
+
+class Quadtree():
+    def __init__(self, imagem):
+        # Armazena a imagem como um mapa de pixels
+        self.imagem = imagem.load
+        # Inicializa o numero de nós da árvore
+        self.tamanho = 0
+        
+        # Vetor de nós
+        self.tree = []
+        self.x = imagem.tamanho[0]
+        self.y = imagem.tamanho[1]
+    
+        # Quantidade total de nós folha
+         tamanho = imagem.tamanho[0] * imagem.tamanho[1]
+        
+
+def main():
+
+    imagem=Image.open("image.png")
+    plt.imshow(imagem)
+   
+
+if __name__=="__main__":
+    main()
+        
