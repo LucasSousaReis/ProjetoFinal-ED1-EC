@@ -46,7 +46,7 @@ class Quadtree():
 
 def main():
 
-    imagem=Image.open("image.png")
+    imagem=Image.open("image.png").convert('RGB')
     plt.imshow(imagem)
    
 
