@@ -8,7 +8,8 @@ Created on Fri Oct 23 02:11:59 2020
 
 
 from PIL import Image        
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
+import numpy as np
                    
 # Classe que define as coordenadas dos nós da Qtree
 class Ponto(object):
@@ -54,10 +55,15 @@ class Quadtree():
         
 
 def main():
-
+    # Faz o upload da imagem
     imagem=Image.open("image.png").convert('RGB')
+    #plt.imshow(imagem)
+    # Modifica a imagem para que possa ser utilizável (imagem quadrada)
+    largura = np.ceil(np.sqrt(imagem.size[0]*imagem.size[1])).astype(int)  
+    imagem = imagem.resize((largura, largura)
+    #im_resize.save('output.png')
     plt.imshow(imagem)
-   
+    
 
 if __name__=="__main__":
     main()
