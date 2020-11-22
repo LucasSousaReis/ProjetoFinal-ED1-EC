@@ -33,15 +33,24 @@ class Quadtree():
         # Armazena a imagem como um mapa de pixels
         self.imagem = imagem.load
         # Inicializa o numero de nós da árvore
-        self.tamanho = 0
-        
+        self.dim
         # Vetor de nós
         self.tree = []
-        self.x = imagem.tamanho[0]
-        self.y = imagem.tamanho[1]
+        self.x = imagem.dim[0]
+        self.y = imagem.dim[1]
     
-        # Quantidade total de nós folha
-        tamanho = imagem.tamanho[0] * imagem.tamanho[1]
+        # Quantidade total de nós folha, qtd de pixels dimensao da imagem
+        dim = imagem.dim[0] * imagem.dim[1]
+        
+        while(dim >=1):
+            self.dim =+ self.dim
+            dim/=4
+            dim = int(dim)
+            
+            dim = imagem.dim[0] * imagem.dim[1]
+
+            
+            
         
 
 def main():
