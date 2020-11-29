@@ -126,6 +126,8 @@ def main():
     largura = np.ceil(np.sqrt(imagem.size[0]*imagem.size[1])).astype(int)  
     imagem = imagem.resize((largura, largura)
     plt.imshow(imagem)
+    Tree = Quadtree(imagem)
+    Tree.display(8)
     
 
 if __name__=="__main__":
