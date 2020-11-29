@@ -8,7 +8,7 @@ Created on Fri Oct 23 02:11:59 2020
 
 
 from PIL import Image        
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 import numpy as np
                    
 # Classe que define as coordenadas dos nós da Qtree
@@ -120,16 +120,13 @@ class Quadtree():
         
 
 def main():
-
+    # Faz o upload da imagem
     imagem=Image.open("image.png").convert('RGB')
+    # Modifica a imagem para que possa ser utilizável (imagem quadrada)
+    largura = np.ceil(np.sqrt(imagem.size[0]*imagem.size[1])).astype(int)  
+    imagem = imagem.resize((largura, largura)
+    plt.imshow(imagem)
     
-    # Reajusta a imagem para que a compressão seja possível, necessita ser uma imagem quadrada
-    sqrWidth = np.ceil(np.sqrt(imagem.size[0]*imagem.size[1])).astype(int)
-    im_quadrada = imagem.resize((sqrWidth, sqrWidth))
-    
-    plt.imshow(im_quadrada)
-    Tree = Quadtree(im_quadrada)
-    Tree.display(6)
 
 if __name__=="__main__":
     main()
