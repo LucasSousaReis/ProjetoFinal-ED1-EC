@@ -10,7 +10,7 @@ Created on Tue Nov 10 03:54:57 2020
 
 from PIL import Image
 import matplotlib.pyplot as plt
-#import numpy as np
+import numpy as np
  
 
 # Cada nó é identificado por um ponto ()
@@ -119,23 +119,50 @@ class quadtree():
  
         
         #mg.show();
-        plt.subplot(212)
-        plt.imshow(img)
-        plt.title('Imagem Comprimida ')
+        #plt.subplot(212)
+        #plt.imshow(img)
+        #plt.title('Imagem Comprimida ')
         # Salva imagem obtida via decomposição
         #img.save('2.jpg')
+        return img
 
 
 
 def main():
+
+    
     #I=imagem.open("imagem.png").convert('RGB')
     imagem=Image.open("emc.jpg").convert('RGB')
-    
-    plt.subplot(211)
+    Tree=quadtree(imagem)
+    img2 = Tree.disp(4)
+    img3 = Tree.disp(6)
+    img4 = Tree.disp(7)
+
+    figure = plt.figure()
+
+    plt.subplot(2, 2, 1)
     plt.imshow(imagem)
-    plt.title(' Imagem a ser comprimida')
-    Tree=quadtree(imagem)        
-    Tree.disp(7)
+    plt.title('Imagem Original')
+    
+    plt.subplot(2, 2, 2)
+    plt.imshow(img2)
+    plt.title('n = 4', fontsize = 14)
+
+
+    plt.subplot(2, 2, 3)
+    plt.imshow(img3)
+    plt.title('n = 5', fontsize = 14)
+
+
+    plt.subplot(2, 2, 4)
+    plt.imshow(img4)
+    plt.title('n = 7', fontsize = 14)
+
+
+    figure.tight_layout(pad=0.6)
+    plt.show()   
+
+
     
 if __name__=="__main__":
-    main()
+    main(),
