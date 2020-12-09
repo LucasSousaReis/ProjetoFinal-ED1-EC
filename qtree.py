@@ -137,9 +137,6 @@ def main():
     img2 = Tree.disp(4)
     img3 = Tree.disp(6)
     img4 = Tree.disp(7)
-
-    figure = plt.figure()
-
     plt.subplot(2, 2, 1)
     plt.imshow(imagem)
     plt.title('Imagem Original')
